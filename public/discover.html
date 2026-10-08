@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discover Homes · AI Real Estate Intelligence</title>
+<meta name="description" content="PropMind: AI price prediction, smart property recommendations and a RAG-powered real estate assistant.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/style.css">
+<script>window.PM_CONFIG={api:"https://propmind-wine.vercel.app",pages:{"about": "about.html", "assistant": "assistant.html", "discover": "discover.html", "documents": "documents.html", "home": "index.html", "insights": "insights.html", "predict": "predict.html"},static:"static/"};</script>
+</head>
+<body>
+<div class="bg"><i class="bl"></i><i class="bl"></i><i class="bl"></i></div>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="index.html">◆ Prop<i>Mind</i></a>
+  <nav class="links" id="links">
+    
+    <a href="predict.html" class="">Predict</a>
+    <a href="discover.html" class="on">Discover</a>
+    <a href="insights.html" class="">Insights</a>
+    <a href="documents.html" class="">Documents</a>
+    <a href="assistant.html" class="">Ask AI</a>
+    <a href="about.html" class="">About</a>
+  </nav>
+  <div class="acct"><div id="acct"></div><button class="burger" id="burger" aria-label="Menu">☰</button></div>
+</div></header>
+<main class="wrap">
+<div class="pghead"><span class="tag">Recommendation engine</span><h2>Discover Homes</h2><p>Tell us your budget and preferences. Every match comes with an explanation of why it was recommended.</p></div>
+<div class="split" style="padding-bottom:90px">
+  <div class="card" style="position:sticky;top:84px">
+    <label>Budget <output id="o_budget"></output></label><input type="range" id="budget" min="60000" max="600000" step="5000" value="250000">
+    <div class="lbl">Minimum bedrooms</div><div class="seg" id="beds"><button type="button" data-v="1">1+</button><button type="button" data-v="2">2+</button><button type="button" data-v="3">3+</button><button type="button" data-v="4">4+</button><button type="button" data-v="5">5+</button></div>
+    <div class="lbl" style="margin-top:16px">Preferred neighborhoods <small class="mut" id="nbc"></small></div>
+    <div class="chips scroll" id="nbs"><button type="button" class="chip" data-v="Blmngtn">Blmngtn</button><button type="button" class="chip" data-v="Blueste">Blueste</button><button type="button" class="chip" data-v="BrDale">BrDale</button><button type="button" class="chip" data-v="BrkSide">BrkSide</button><button type="button" class="chip" data-v="ClearCr">ClearCr</button><button type="button" class="chip" data-v="CollgCr">CollgCr</button><button type="button" class="chip" data-v="Crawfor">Crawfor</button><button type="button" class="chip" data-v="Edwards">Edwards</button><button type="button" class="chip" data-v="Gilbert">Gilbert</button><button type="button" class="chip" data-v="IDOTRR">IDOTRR</button><button type="button" class="chip" data-v="MeadowV">MeadowV</button><button type="button" class="chip" data-v="Mitchel">Mitchel</button><button type="button" class="chip" data-v="NAmes">NAmes</button><button type="button" class="chip" data-v="NPkVill">NPkVill</button><button type="button" class="chip" data-v="NWAmes">NWAmes</button><button type="button" class="chip" data-v="NoRidge">NoRidge</button><button type="button" class="chip" data-v="NridgHt">NridgHt</button><button type="button" class="chip" data-v="OldTown">OldTown</button><button type="button" class="chip" data-v="SWISU">SWISU</button><button type="button" class="chip" data-v="Sawyer">Sawyer</button><button type="button" class="chip" data-v="SawyerW">SawyerW</button><button type="button" class="chip" data-v="Somerst">Somerst</button><button type="button" class="chip" data-v="StoneBr">StoneBr</button><button type="button" class="chip" data-v="Timber">Timber</button><button type="button" class="chip" data-v="Veenker">Veenker</button></div>
+    <div class="lbl" style="margin-top:16px">Preferences</div>
+    <div class="chips" id="prefs"><button type="button" class="chip" data-v="garage">2+ car garage</button><button type="button" class="chip" data-v="new_build">Newer build (2000+)</button><button type="button" class="chip" data-v="high_quality">High quality</button><button type="button" class="chip" data-v="large_lot">Large lot</button><button type="button" class="chip" data-v="big_home">Spacious</button><button type="button" class="chip" data-v="basement">Big basement</button></div>
+    <button class="btn" id="find" style="width:100%;justify-content:center;margin-top:22px">Find homes</button>
+  </div>
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+      <div class="chips"><button class="chip on" id="tabM">Recommendations</button><button class="chip" id="tabS">♥ Saved <span id="savedN"></span></button></div><span class="mut" id="count" style="font-size:14px"></span></div>
+    <div class="props" id="results"><div class="empty">Searching…</div></div>
+  </div>
+</div>
+<div class="tray" id="tray"><span id="trayT"></span><button class="btn sm" id="cmpGo">Compare</button><button class="btn ghost sm" id="cmpX">Clear</button></div>
+</main>
+<footer class="foot"><div class="wrap"><span>◆ PropMind · AI Real Estate Intelligence Platform</span><span>FastAPI · scikit-learn · Groq · RAG · Educational estimates, not appraisals</span></div></footer>
+<div class="toasts" id="toasts"></div>
+<script src="static/js/app.js"></script>
+<script src="static/js/discover.js"></script>
+</body>
+</html>

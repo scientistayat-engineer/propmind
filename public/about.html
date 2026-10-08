@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About · AI Real Estate Intelligence</title>
+<meta name="description" content="PropMind: AI price prediction, smart property recommendations and a RAG-powered real estate assistant.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/style.css">
+<script>window.PM_CONFIG={api:"https://propmind-wine.vercel.app",pages:{"about": "about.html", "assistant": "assistant.html", "discover": "discover.html", "documents": "documents.html", "home": "index.html", "insights": "insights.html", "predict": "predict.html"},static:"static/"};</script>
+</head>
+<body>
+<div class="bg"><i class="bl"></i><i class="bl"></i><i class="bl"></i></div>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="index.html">◆ Prop<i>Mind</i></a>
+  <nav class="links" id="links">
+    
+    <a href="predict.html" class="">Predict</a>
+    <a href="discover.html" class="">Discover</a>
+    <a href="insights.html" class="">Insights</a>
+    <a href="documents.html" class="">Documents</a>
+    <a href="assistant.html" class="">Ask AI</a>
+    <a href="about.html" class="on">About</a>
+  </nav>
+  <div class="acct"><div id="acct"></div><button class="burger" id="burger" aria-label="Menu">☰</button></div>
+</div></header>
+<main class="wrap">
+<div class="pghead"><span class="tag">About the project</span><h2>An AI product, not just a model</h2><p>PropMind combines data analysis, machine learning, generative AI and retrieval into one real-world real estate platform.</p></div>
+<div class="grid2" style="margin-bottom:26px">
+  <div class="card rv"><span class="tag">Data</span><h3 style="margin:6px 0 10px">Ames, Iowa housing dataset</h3><p class="mut">1,460 home sales (2006-2010) with 79 features from Kaggle's House Prices competition. After cleaning and removing two outliers, 1,458 homes with no missing values are used for analysis and modelling.</p></div>
+  <div class="card rv"><span class="tag">Machine learning</span><h3 style="margin:6px 0 10px">Random Forest price model</h3><p class="mut">Linear Regression, Decision Tree and Random Forest were compared on a held-out test set. The Random Forest has the lowest average error and predicts from nine simple inputs.</p></div>
+  <div class="card rv"><span class="tag">Recommendations</span><h3 style="margin:6px 0 10px">Explainable matching</h3><p class="mut">Homes are scored on budget fit, value against the AI fair-value estimate, quality and your preferences, and every result lists the reasons behind it.</p></div>
+  <div class="card rv"><span class="tag">Generative AI + RAG</span><h3 style="margin:6px 0 10px">Grounded answers</h3><p class="mut">A prompt-engineered Groq LLM powers the advisor. The RAG assistant retrieves passages from four property documents with TF-IDF search and answers with citations.</p></div>
+</div>
+<div class="card rv" style="margin-bottom:26px"><span class="tag">Architecture</span>
+  <div class="grid4" style="margin-top:14px;text-align:center"><div class="card"><h3 class="gold">Browser</h3><p class="mut" style="font-size:13px">HTML · CSS · JS</p></div><div class="card"><h3 class="gold">FastAPI</h3><p class="mut" style="font-size:13px">REST API + templates</p></div><div class="card"><h3 class="gold">Services</h3><p class="mut" style="font-size:13px">Model · Recommender · RAG</p></div><div class="card"><h3 class="gold">Groq LLM</h3><p class="mut" style="font-size:13px">Chat · summaries · RAG answers</p></div></div></div>
+<div class="card rv" style="margin-bottom:50px"><span class="tag">Tech stack</span><div class="chips" style="margin-top:12px"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">scikit-learn</span><span class="chip">FastAPI</span><span class="chip">Jinja2</span><span class="chip">Groq (Llama 3.3)</span><span class="chip">TF-IDF RAG</span><span class="chip">ReportLab</span><span class="chip">Vercel</span><span class="chip">Firebase Hosting</span><span class="chip">GitHub</span></div>
+  <p class="disc">Built by Anushay Ayat as the SMIT AI &amp; Data Science final project. Estimates are educational and not a substitute for a professional appraisal, legal or financial advice.</p></div>
+</main>
+<footer class="foot"><div class="wrap"><span>◆ PropMind · AI Real Estate Intelligence Platform</span><span>FastAPI · scikit-learn · Groq · RAG · Educational estimates, not appraisals</span></div></footer>
+<div class="toasts" id="toasts"></div>
+<script src="static/js/app.js"></script>
+
+</body>
+</html>

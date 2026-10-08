@@ -5,6 +5,7 @@
 ### AI Real Estate Intelligence Platform
 
 **Predict prices · Discover explained matches · Ask an AI advisor · Chat with your property documents**
+**Live demo:** [Vercel](https://propmind-wine.vercel.app) · [Firebase](https://propmind-ai-a8325.web.app)
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-d4af6a?style=flat-square&logo=python&logoColor=white&labelColor=1a1a22)
 ![FastAPI](https://img.shields.io/badge/FastAPI-backend-d4af6a?style=flat-square&logo=fastapi&logoColor=white&labelColor=1a1a22)

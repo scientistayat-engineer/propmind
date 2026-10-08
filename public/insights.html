@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market Insights · AI Real Estate Intelligence</title>
+<meta name="description" content="PropMind: AI price prediction, smart property recommendations and a RAG-powered real estate assistant.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/style.css">
+<script>window.PM_CONFIG={api:"https://propmind-wine.vercel.app",pages:{"about": "about.html", "assistant": "assistant.html", "discover": "discover.html", "documents": "documents.html", "home": "index.html", "insights": "insights.html", "predict": "predict.html"},static:"static/"};</script>
+</head>
+<body>
+<div class="bg"><i class="bl"></i><i class="bl"></i><i class="bl"></i></div>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="index.html">◆ Prop<i>Mind</i></a>
+  <nav class="links" id="links">
+    
+    <a href="predict.html" class="">Predict</a>
+    <a href="discover.html" class="">Discover</a>
+    <a href="insights.html" class="on">Insights</a>
+    <a href="documents.html" class="">Documents</a>
+    <a href="assistant.html" class="">Ask AI</a>
+    <a href="about.html" class="">About</a>
+  </nav>
+  <div class="acct"><div id="acct"></div><button class="burger" id="burger" aria-label="Menu">☰</button></div>
+</div></header>
+<main class="wrap">
+<div class="pghead"><span class="tag">Data analysis</span><h2>Market Insights</h2><p>Explore price patterns across neighborhoods, and see how the machine-learning models performed.</p></div>
+<div class="grid4" id="kpis" style="margin-bottom:26px">
+  <div class="card"><span class="tag">Homes analyzed</span><div class="price" id="k1" style="font-size:36px">—</div></div>
+  <div class="card"><span class="tag">Median price</span><div class="price" id="k2" style="font-size:36px">—</div></div>
+  <div class="card"><span class="tag">Neighborhoods</span><div class="price" id="k3" style="font-size:36px">—</div></div>
+  <div class="card"><span class="tag">Model accuracy (R²)</span><div class="price" id="k4" style="font-size:36px">—</div></div>
+</div>
+<div class="card" style="margin-bottom:26px"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:12px"><div><span class="tag">Location comparison</span><h3>Neighborhoods ranked</h3></div>
+  <div class="chips" id="metric"><button class="chip on" data-m="median_price">Median price</button><button class="chip" data-m="ppsf">Price per sqft</button><button class="chip" data-m="quality">Quality</button><button class="chip" data-m="year">Median year built</button></div></div>
+  <div id="bars"><div class="empty">Loading…</div></div></div>
+<div class="grid2" style="margin-bottom:26px">
+  <div class="card"><span class="tag">Model evaluation</span><h3 style="margin-bottom:12px">Three models compared</h3><div style="overflow:auto"><table id="mt"></table></div><p class="disc">Evaluated on a held-out 20% test set. The model with the lowest average error is used in production.</p></div>
+  <div class="card"><span class="tag">Key takeaways</span><h3 style="margin-bottom:12px">What drives price?</h3><ul class="why"><li>Overall build quality is the strongest single driver.</li><li>Living area and garage capacity add steady value.</li><li>Newer homes sell at a clear premium.</li><li>Neighborhood adds a large premium or discount on top of features.</li><li>Prices are right-skewed, so the median describes a typical home better than the mean.</li></ul></div>
+</div>
+<span class="tag">Analysis charts</span><h2 style="margin:6px 0 18px">Exploratory data analysis</h2>
+<div class="gal" style="padding-bottom:30px" id="gal"></div>
+</main>
+<footer class="foot"><div class="wrap"><span>◆ PropMind · AI Real Estate Intelligence Platform</span><span>FastAPI · scikit-learn · Groq · RAG · Educational estimates, not appraisals</span></div></footer>
+<div class="toasts" id="toasts"></div>
+<script src="static/js/app.js"></script>
+<script>window.CHARTS = "static/";</script><script src="static/js/insights.js"></script>
+</body>
+</html>

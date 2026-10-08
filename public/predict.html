@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Price Prediction · AI Real Estate Intelligence</title>
+<meta name="description" content="PropMind: AI price prediction, smart property recommendations and a RAG-powered real estate assistant.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/style.css">
+<script>window.PM_CONFIG={api:"https://propmind-wine.vercel.app",pages:{"about": "about.html", "assistant": "assistant.html", "discover": "discover.html", "documents": "documents.html", "home": "index.html", "insights": "insights.html", "predict": "predict.html"},static:"static/"};</script>
+</head>
+<body>
+<div class="bg"><i class="bl"></i><i class="bl"></i><i class="bl"></i></div>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="index.html">◆ Prop<i>Mind</i></a>
+  <nav class="links" id="links">
+    
+    <a href="predict.html" class="on">Predict</a>
+    <a href="discover.html" class="">Discover</a>
+    <a href="insights.html" class="">Insights</a>
+    <a href="documents.html" class="">Documents</a>
+    <a href="assistant.html" class="">Ask AI</a>
+    <a href="about.html" class="">About</a>
+  </nav>
+  <div class="acct"><div id="acct"></div><button class="burger" id="burger" aria-label="Menu">☰</button></div>
+</div></header>
+<main class="wrap">
+<div class="pghead"><span class="tag">Machine learning</span><h2>Price Prediction</h2><p>Describe a property and the trained Random Forest model estimates its fair market price instantly.</p></div>
+<div class="split" style="padding-bottom:40px">
+  <div class="card" id="form">
+    <label>Neighborhood</label><select id="Neighborhood"><option >Blmngtn</option><option >Blueste</option><option >BrDale</option><option >BrkSide</option><option >ClearCr</option><option selected>CollgCr</option><option >Crawfor</option><option >Edwards</option><option >Gilbert</option><option >IDOTRR</option><option >MeadowV</option><option >Mitchel</option><option >NAmes</option><option >NPkVill</option><option >NWAmes</option><option >NoRidge</option><option >NridgHt</option><option >OldTown</option><option >SWISU</option><option >Sawyer</option><option >SawyerW</option><option >Somerst</option><option >StoneBr</option><option >Timber</option><option >Veenker</option></select>
+    <label>Living area <output id="o_GrLivArea"></output></label><input type="range" id="GrLivArea" min="500" max="4500" step="50" value="1700">
+    <div class="lbl">Bedrooms</div><div class="seg" data-f="BedroomAbvGr" data-v="3"><button type="button" data-v="1">1</button><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button><button type="button" data-v="4">4</button><button type="button" data-v="5">5</button><button type="button" data-v="6">6</button></div>
+    <div class="lbl" style="margin-top:16px">Full bathrooms</div><div class="seg" data-f="FullBath" data-v="2"><button type="button" data-v="1">1</button><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button><button type="button" data-v="4">4</button></div>
+    <label>Overall quality <output id="o_OverallQual"></output></label><input type="range" id="OverallQual" min="1" max="10" value="7">
+    <label>Year built <output id="o_YearBuilt"></output></label><input type="range" id="YearBuilt" min="1900" max="2026" value="2003">
+    <div class="lbl">Garage capacity (cars)</div><div class="seg" data-f="GarageCars" data-v="2"><button type="button" data-v="0">0</button><button type="button" data-v="1">1</button><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button><button type="button" data-v="4">4</button></div>
+    <label>Basement <output id="o_TotalBsmtSF"></output></label><input type="range" id="TotalBsmtSF" min="0" max="3000" step="50" value="850">
+    <label>Lot size <output id="o_LotArea"></output></label><input type="range" id="LotArea" min="2000" max="30000" step="500" value="8500">
+  </div>
+  <div style="display:grid;gap:22px">
+    <div class="card"><span class="tag">Estimated sale price</span><div class="price" id="price">$—</div>
+      <div class="mut" id="range" style="font-size:14px"></div>
+      <div class="bar" style="height:10px;margin:18px 0 8px"><i id="gauge" style="position:absolute;left:0;width:0;background:#d4af6a55"></i><b id="dot" style="position:absolute;top:-4px;width:18px;height:18px;border-radius:50%;background:var(--gold-l);box-shadow:0 0 14px var(--gold);left:50%;transform:translateX(-50%)"></b></div>
+      <div class="grid3" style="margin-top:20px;gap:12px"><div><span class="tag">Per sqft</span><div style="font:700 22px var(--fh)" id="ppsf">—</div></div><div><span class="tag">vs area median</span><div style="font:700 22px var(--fh)" id="vsn">—</div></div><div><span class="tag">Confidence</span><div style="font:700 22px var(--fh)" id="conf">—</div></div></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px"><button class="btn" id="report">⬇ PDF report</button><a class="btn ghost" id="similar" href="#">Find similar homes</a><button class="btn ghost" id="saveH">Save valuation</button></div>
+      <p class="disc" id="model"></p></div>
+    <div class="card"><span class="tag">What-if analysis</span><h3 style="margin:6px 0 10px">What would change the price?</h3><div id="whatif" class="mut">—</div></div>
+    <div class="card"><span class="tag">Recent valuations</span><div id="hist" style="margin-top:8px"><p class="mut" style="font-size:14px">No saved valuations yet.</p></div></div>
+  </div>
+</div>
+</main>
+<footer class="foot"><div class="wrap"><span>◆ PropMind · AI Real Estate Intelligence Platform</span><span>FastAPI · scikit-learn · Groq · RAG · Educational estimates, not appraisals</span></div></footer>
+<div class="toasts" id="toasts"></div>
+<script src="static/js/app.js"></script>
+<script src="static/js/predict.js"></script>
+</body>
+</html>

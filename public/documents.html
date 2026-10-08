@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documents (RAG) · AI Real Estate Intelligence</title>
+<meta name="description" content="PropMind: AI price prediction, smart property recommendations and a RAG-powered real estate assistant.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/style.css">
+<script>window.PM_CONFIG={api:"https://propmind-wine.vercel.app",pages:{"about": "about.html", "assistant": "assistant.html", "discover": "discover.html", "documents": "documents.html", "home": "index.html", "insights": "insights.html", "predict": "predict.html"},static:"static/"};</script>
+</head>
+<body>
+<div class="bg"><i class="bl"></i><i class="bl"></i><i class="bl"></i></div>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="index.html">◆ Prop<i>Mind</i></a>
+  <nav class="links" id="links">
+    
+    <a href="predict.html" class="">Predict</a>
+    <a href="discover.html" class="">Discover</a>
+    <a href="insights.html" class="">Insights</a>
+    <a href="documents.html" class="on">Documents</a>
+    <a href="assistant.html" class="">Ask AI</a>
+    <a href="about.html" class="">About</a>
+  </nav>
+  <div class="acct"><div id="acct"></div><button class="burger" id="burger" aria-label="Menu">☰</button></div>
+</div></header>
+<main class="wrap">
+<div class="pghead"><span class="tag">Retrieval-augmented generation</span><h2>Document Knowledge Assistant</h2><p>Ask questions about buying, legal steps, investing and neighborhoods. Answers come only from the indexed documents, with citations.</p></div>
+<div class="split" style="padding-bottom:40px;grid-template-columns:360px 1fr">
+  <div class="card"><span class="tag">Knowledge base</span><div id="docs" style="margin:8px 0 16px"><div class="empty">Loading…</div></div>
+    <div class="drop" id="drop"><div style="font-size:26px">⬆</div>Drop a PDF, TXT or MD file<br><small>or click to upload (max 3 MB)</small></div><input type="file" id="file" accept=".pdf,.txt,.md" hidden>
+    <p class="disc">Uploaded documents are indexed instantly and searchable in your questions.</p></div>
+  <div class="card"><span class="tag">Ask your documents</span>
+    <div class="inrow"><input type="text" id="q" placeholder="e.g. How much down payment does an FHA loan need?"><button class="btn" id="ask">Ask</button></div>
+    <div class="chips" style="margin-top:14px" id="sugg"><button class="chip">How much down payment does an FHA loan need?</button><button class="chip">What is the transfer tax in Iowa?</button><button class="chip">How do I calculate cap rate?</button><button class="chip">Which neighborhood is the cheapest?</button><button class="chip">What should I check during a home inspection?</button><button class="chip">How are property taxes paid in Iowa?</button></div>
+    <div id="ans" style="margin-top:22px"></div></div>
+</div>
+</main>
+<footer class="foot"><div class="wrap"><span>◆ PropMind · AI Real Estate Intelligence Platform</span><span>FastAPI · scikit-learn · Groq · RAG · Educational estimates, not appraisals</span></div></footer>
+<div class="toasts" id="toasts"></div>
+<script src="static/js/app.js"></script>
+<script src="static/js/documents.js"></script>
+</body>
+</html>
