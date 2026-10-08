@@ -1,0 +1,6 @@
+-r requirements.txt
+# training, notebook and static build
+matplotlib>=3.8
+seaborn>=0.13
+jupyter>=1.0
+ipykernel>=6.29

@@ -1,0 +1,29 @@
+{
+  "r2": 0.8846,
+  "mae": 17782,
+  "within10": 63,
+  "within15": 77,
+  "within20": 87,
+  "median_ape": 6.6,
+  "test_n": 292,
+  "metrics": {
+    "Linear Regression": {
+      "r2": 0.8763,
+      "mae": 18829,
+      "rmse": 26144,
+      "cv_r2": 0.859
+    },
+    "Decision Tree": {
+      "r2": 0.8397,
+      "mae": 20913,
+      "rmse": 29761,
+      "cv_r2": 0.7693
+    },
+    "Random Forest": {
+      "r2": 0.8846,
+      "mae": 17782,
+      "rmse": 25251,
+      "cv_r2": 0.8473
+    }
+  }
+}

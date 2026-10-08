@@ -1,0 +1,14 @@
+{% extends "base.html" %}{% block title %}Documents (RAG){% endblock %}
+{% block content %}
+<div class="pghead"><span class="tag">Retrieval-augmented generation</span><h2>Document Knowledge Assistant</h2><p>Ask questions about buying, legal steps, investing and neighborhoods. Answers come only from the indexed documents, with citations.</p></div>
+<div class="split" style="padding-bottom:40px;grid-template-columns:360px 1fr">
+  <div class="card"><span class="tag">Knowledge base</span><div id="docs" style="margin:8px 0 16px"><div class="empty">Loading…</div></div>
+    <div class="drop" id="drop"><div style="font-size:26px">⬆</div>Drop a PDF, TXT or MD file<br><small>or click to upload (max 3 MB)</small></div><input type="file" id="file" accept=".pdf,.txt,.md" hidden>
+    <p class="disc">Uploaded documents are indexed instantly and searchable in your questions.</p></div>
+  <div class="card"><span class="tag">Ask your documents</span>
+    <div class="inrow"><input type="text" id="q" placeholder="e.g. How much down payment does an FHA loan need?"><button class="btn" id="ask">Ask</button></div>
+    <div class="chips" style="margin-top:14px" id="sugg">{% for s in ['How much down payment does an FHA loan need?','What is the transfer tax in Iowa?','How do I calculate cap rate?','Which neighborhood is the cheapest?','What should I check during a home inspection?','How are property taxes paid in Iowa?'] %}<button class="chip">{{ s }}</button>{% endfor %}</div>
+    <div id="ans" style="margin-top:22px"></div></div>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ S }}js/documents.js"></script>{% endblock %}

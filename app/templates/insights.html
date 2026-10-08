@@ -1,0 +1,20 @@
+{% extends "base.html" %}{% block title %}Market Insights{% endblock %}
+{% block content %}
+<div class="pghead"><span class="tag">Data analysis</span><h2>Market Insights</h2><p>Explore price patterns across neighborhoods, and see how the machine-learning models performed.</p></div>
+<div class="grid4" id="kpis" style="margin-bottom:26px">
+  <div class="card"><span class="tag">Homes analyzed</span><div class="price" id="k1" style="font-size:36px">—</div></div>
+  <div class="card"><span class="tag">Median price</span><div class="price" id="k2" style="font-size:36px">—</div></div>
+  <div class="card"><span class="tag">Neighborhoods</span><div class="price" id="k3" style="font-size:36px">—</div></div>
+  <div class="card"><span class="tag">Model accuracy (R²)</span><div class="price" id="k4" style="font-size:36px">—</div></div>
+</div>
+<div class="card" style="margin-bottom:26px"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:12px"><div><span class="tag">Location comparison</span><h3>Neighborhoods ranked</h3></div>
+  <div class="chips" id="metric"><button class="chip on" data-m="median_price">Median price</button><button class="chip" data-m="ppsf">Price per sqft</button><button class="chip" data-m="quality">Quality</button><button class="chip" data-m="year">Median year built</button></div></div>
+  <div id="bars"><div class="empty">Loading…</div></div></div>
+<div class="grid2" style="margin-bottom:26px">
+  <div class="card"><span class="tag">Model evaluation</span><h3 style="margin-bottom:12px">Three models compared</h3><div style="overflow:auto"><table id="mt"></table></div><p class="disc">Evaluated on a held-out 20% test set. The model with the lowest average error is used in production.</p></div>
+  <div class="card"><span class="tag">Key takeaways</span><h3 style="margin-bottom:12px">What drives price?</h3><ul class="why"><li>Overall build quality is the strongest single driver.</li><li>Living area and garage capacity add steady value.</li><li>Newer homes sell at a clear premium.</li><li>Neighborhood adds a large premium or discount on top of features.</li><li>Prices are right-skewed, so the median describes a typical home better than the mean.</li></ul></div>
+</div>
+<span class="tag">Analysis charts</span><h2 style="margin:6px 0 18px">Exploratory data analysis</h2>
+<div class="gal" style="padding-bottom:30px" id="gal"></div>
+{% endblock %}
+{% block scripts %}<script>window.CHARTS = {{ S|tojson }};</script><script src="{{ S }}js/insights.js"></script>{% endblock %}

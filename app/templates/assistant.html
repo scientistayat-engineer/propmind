@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block title %}AI Assistant{% endblock %}
+{% block content %}
+<div class="pghead" style="text-align:center"><div class="orb"></div><span class="tag">Generative AI</span><h2>PropMind AI Advisor</h2><p style="margin:0 auto">Ask about prices, neighborhoods, market trends or buying guidance.</p></div>
+<div class="card chatbox" style="max-width:860px;margin:0 auto 50px;width:100%">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span class="tag" id="mode">AI advisor</span><button class="btn ghost sm" id="clear">Clear chat</button></div>
+  <div class="msgs" id="msgs"></div>
+  <div class="chips" id="sugg" style="margin-top:10px">{% for s in ['Which neighborhoods are most affordable?','Is NridgHt worth the premium?','Explain the home buying process','What makes a house price go up?'] %}<button class="chip">{{ s }}</button>{% endfor %}</div>
+  <div class="inrow"><input type="text" id="in" placeholder="Ask anything about real estate…" maxlength="1500"><button class="btn" id="send">Send</button></div>
+  <p class="disc">General information only, not legal, tax or financial advice.</p>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ S }}js/assistant.js"></script>{% endblock %}

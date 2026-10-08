@@ -1,0 +1,28 @@
+{% extends "base.html" %}{% block title %}Price Prediction{% endblock %}
+{% block content %}
+<div class="pghead"><span class="tag">Machine learning</span><h2>Price Prediction</h2><p>Describe a property and the trained Random Forest model estimates its fair market price instantly.</p></div>
+<div class="split" style="padding-bottom:40px">
+  <div class="card" id="form">
+    <label>Neighborhood</label><select id="Neighborhood">{% for n in neighborhoods %}<option {{ 'selected' if n=='CollgCr' }}>{{ n }}</option>{% endfor %}</select>
+    <label>Living area <output id="o_GrLivArea"></output></label><input type="range" id="GrLivArea" min="500" max="4500" step="50" value="1700">
+    <div class="lbl">Bedrooms</div><div class="seg" data-f="BedroomAbvGr" data-v="3">{% for i in range(1,7) %}<button type="button" data-v="{{ i }}">{{ i }}</button>{% endfor %}</div>
+    <div class="lbl" style="margin-top:16px">Full bathrooms</div><div class="seg" data-f="FullBath" data-v="2">{% for i in range(1,5) %}<button type="button" data-v="{{ i }}">{{ i }}</button>{% endfor %}</div>
+    <label>Overall quality <output id="o_OverallQual"></output></label><input type="range" id="OverallQual" min="1" max="10" value="7">
+    <label>Year built <output id="o_YearBuilt"></output></label><input type="range" id="YearBuilt" min="1900" max="2026" value="2003">
+    <div class="lbl">Garage capacity (cars)</div><div class="seg" data-f="GarageCars" data-v="2">{% for i in range(0,5) %}<button type="button" data-v="{{ i }}">{{ i }}</button>{% endfor %}</div>
+    <label>Basement <output id="o_TotalBsmtSF"></output></label><input type="range" id="TotalBsmtSF" min="0" max="3000" step="50" value="850">
+    <label>Lot size <output id="o_LotArea"></output></label><input type="range" id="LotArea" min="2000" max="30000" step="500" value="8500">
+  </div>
+  <div style="display:grid;gap:22px">
+    <div class="card"><span class="tag">Estimated sale price</span><div class="price" id="price">$—</div>
+      <div class="mut" id="range" style="font-size:14px"></div>
+      <div class="bar" style="height:10px;margin:18px 0 8px"><i id="gauge" style="position:absolute;left:0;width:0;background:#d4af6a55"></i><b id="dot" style="position:absolute;top:-4px;width:18px;height:18px;border-radius:50%;background:var(--gold-l);box-shadow:0 0 14px var(--gold);left:50%;transform:translateX(-50%)"></b></div>
+      <div class="grid3" style="margin-top:20px;gap:12px"><div><span class="tag">Per sqft</span><div style="font:700 22px var(--fh)" id="ppsf">—</div></div><div><span class="tag">vs area median</span><div style="font:700 22px var(--fh)" id="vsn">—</div></div><div><span class="tag">Confidence</span><div style="font:700 22px var(--fh)" id="conf">—</div></div></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px"><button class="btn" id="report">⬇ PDF report</button><a class="btn ghost" id="similar" href="#">Find similar homes</a><button class="btn ghost" id="saveH">Save valuation</button></div>
+      <p class="disc" id="model"></p></div>
+    <div class="card"><span class="tag">What-if analysis</span><h3 style="margin:6px 0 10px">What would change the price?</h3><div id="whatif" class="mut">—</div></div>
+    <div class="card"><span class="tag">Recent valuations</span><div id="hist" style="margin-top:8px"><p class="mut" style="font-size:14px">No saved valuations yet.</p></div></div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ S }}js/predict.js"></script>{% endblock %}

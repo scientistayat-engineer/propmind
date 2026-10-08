@@ -1,0 +1,37 @@
+{% extends "base.html" %}{% block title %}Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <div>
+    <span class="tag">AI Real Estate Intelligence</span>
+    <h1 style="margin-top:14px">Know the <em>true value</em> of every home.</h1>
+    <p class="sub">Machine-learning price prediction, explainable recommendations and a document-aware AI advisor, together in one premium workspace.</p>
+    <a class="btn" href="{{ P.predict }}">Predict a Price →</a> <a class="btn ghost" href="{{ P.assistant }}" style="margin-left:8px">Ask the AI</a>
+    <div class="stats">
+      <div><b id="sHomes">0</b><span>homes analyzed</span></div><div><b id="sNb">0</b><span>neighborhoods</span></div><div><b id="sR2">0</b><span>model R² score</span></div>
+    </div>
+  </div>
+  <div class="card"><div class="orb"></div><span class="tag" id="hTag">Live AI estimate · CollgCr</span>
+    <div class="price" id="hPrice">$—</div><div class="mut" style="font-size:13px">3 bed · 1,710 sqft · quality 7/10 · built 2003</div>
+    <div class="bar"><i id="hBar" style="width:0"></i></div><small class="gold" id="hNote">Calling the model…</small></div>
+</section>
+
+<section class="rv"><span class="tag">Neighborhood price map</span><h2>Where the value is</h2>
+  <p class="mut" style="margin-bottom:20px">Brighter tiles mean higher median prices. Click any neighborhood to find homes there.</p>
+  <div class="heat" id="heat"><div class="empty">Loading market data…</div></div></section>
+
+<section><span class="tag">Platform</span><h2>One platform, every answer</h2>
+  <div class="grid3 feat" style="margin-top:22px">
+    {% for ic,t,d in [('◈','AI Price Prediction','Random Forest model trained on real sales, with an 80% likely range and what-if effects for every estimate.'),('★','Explained Recommendations','Matches by budget, location and bedrooms, each with a plain-language reason why it was recommended.'),('✦','AI Real Estate Advisor','Groq-powered assistant with prompt-engineered answers on trends, summaries and buying guidance.'),('❏','Document RAG','Upload guides or legal documents and get answers with citations to the exact passages used.'),('▥','Market Insights','Neighborhood comparisons, price per square foot, quality and age analysis in interactive charts.'),('♥','Shortlist and Compare','Save favourites, compare up to three homes side by side and download a PDF valuation report.')] %}
+    <div class="card rv"><div class="ic">{{ ic }}</div><h3>{{ t }}</h3><p>{{ d }}</p></div>{% endfor %}
+  </div></section>
+
+<section><span class="tag">Workflow</span><h2>How it works</h2>
+  <div class="grid3 step" style="margin-top:22px">
+    <div class="card rv"><b>01</b><h3>Describe the home</h3><p class="mut">Enter size, quality, location and your budget.</p></div>
+    <div class="card rv"><b>02</b><h3>AI analyses the market</h3><p class="mut">The model, recommender and documents work together.</p></div>
+    <div class="card rv"><b>03</b><h3>Decide with confidence</h3><p class="mut">See fair value, reasons, risks and cited sources.</p></div>
+  </div></section>
+
+<section class="rv"><div class="card" style="text-align:center;padding:48px 24px"><h2>Ready to value your next home?</h2><p class="mut" style="margin-bottom:22px">No sign-up needed to try the predictor.</p><a class="btn" href="{{ P.predict }}">Start predicting</a></div></section>
+{% endblock %}
+{% block scripts %}<script src="{{ S }}js/home.js"></script>{% endblock %}

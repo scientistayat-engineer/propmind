@@ -1,0 +1,14 @@
+{% extends "base.html" %}{% block title %}About{% endblock %}
+{% block content %}
+<div class="pghead"><span class="tag">About the project</span><h2>An AI product, not just a model</h2><p>PropMind combines data analysis, machine learning, generative AI and retrieval into one real-world real estate platform.</p></div>
+<div class="grid2" style="margin-bottom:26px">
+  <div class="card rv"><span class="tag">Data</span><h3 style="margin:6px 0 10px">Ames, Iowa housing dataset</h3><p class="mut">1,460 home sales (2006-2010) with 79 features from Kaggle's House Prices competition. After cleaning and removing two outliers, 1,458 homes with no missing values are used for analysis and modelling.</p></div>
+  <div class="card rv"><span class="tag">Machine learning</span><h3 style="margin:6px 0 10px">Random Forest price model</h3><p class="mut">Linear Regression, Decision Tree and Random Forest were compared on a held-out test set. The Random Forest has the lowest average error and predicts from nine simple inputs.</p></div>
+  <div class="card rv"><span class="tag">Recommendations</span><h3 style="margin:6px 0 10px">Explainable matching</h3><p class="mut">Homes are scored on budget fit, value against the AI fair-value estimate, quality and your preferences, and every result lists the reasons behind it.</p></div>
+  <div class="card rv"><span class="tag">Generative AI + RAG</span><h3 style="margin:6px 0 10px">Grounded answers</h3><p class="mut">A prompt-engineered Groq LLM powers the advisor. The RAG assistant retrieves passages from four property documents with TF-IDF search and answers with citations.</p></div>
+</div>
+<div class="card rv" style="margin-bottom:26px"><span class="tag">Architecture</span>
+  <div class="grid4" style="margin-top:14px;text-align:center">{% for a,b in [('Browser','HTML · CSS · JS'),('FastAPI','REST API + templates'),('Services','Model · Recommender · RAG'),('Groq LLM','Chat · summaries · RAG answers')] %}<div class="card"><h3 class="gold">{{ a }}</h3><p class="mut" style="font-size:13px">{{ b }}</p></div>{% endfor %}</div></div>
+<div class="card rv" style="margin-bottom:50px"><span class="tag">Tech stack</span><div class="chips" style="margin-top:12px">{% for t in ['Python','Pandas','NumPy','Matplotlib','Seaborn','scikit-learn','FastAPI','Jinja2','Groq (Llama 3.3)','TF-IDF RAG','ReportLab','Vercel','Firebase Hosting','GitHub'] %}<span class="chip">{{ t }}</span>{% endfor %}</div>
+  <p class="disc">Built by Anushay Ayat as the SMIT AI &amp; Data Science final project. Estimates are educational and not a substitute for a professional appraisal, legal or financial advice.</p></div>
+{% endblock %}

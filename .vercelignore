@@ -1,0 +1,14 @@
+notebooks/
+ml/
+public/
+data/train.csv
+data/test.csv
+data/sample_submission.csv
+data/data_description.txt
+.venv/
+__pycache__/
+*.ipynb
+reports/
+docs/screenshots/
+docs/images/
+tests/

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}PropMind{% endblock %} · AI Real Estate Intelligence</title>
+<meta name="description" content="PropMind: AI price prediction, smart property recommendations and a RAG-powered real estate assistant.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ S }}css/style.css">
+<script>window.PM_CONFIG={api:"{{ API_BASE }}",pages:{{ P|tojson }},static:"{{ S }}"};</script>
+</head>
+<body>
+<div class="bg"><i class="bl"></i><i class="bl"></i><i class="bl"></i></div>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="{{ P.home }}">◆ Prop<i>Mind</i></a>
+  <nav class="links" id="links">
+    {% for key,label in [('predict','Predict'),('discover','Discover'),('insights','Insights'),('documents','Documents'),('assistant','Ask AI'),('about','About')] %}
+    <a href="{{ P[key] }}" class="{{ 'on' if page==key }}">{{ label }}</a>{% endfor %}
+  </nav>
+  <div class="acct"><div id="acct"></div><button class="burger" id="burger" aria-label="Menu">☰</button></div>
+</div></header>
+<main class="wrap">{% block content %}{% endblock %}</main>
+<footer class="foot"><div class="wrap"><span>◆ PropMind · AI Real Estate Intelligence Platform</span><span>FastAPI · scikit-learn · Groq · RAG · Educational estimates, not appraisals</span></div></footer>
+<div class="toasts" id="toasts"></div>
+<script src="{{ S }}js/app.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

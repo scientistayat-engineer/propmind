@@ -1,0 +1,22 @@
+{% extends "base.html" %}{% block title %}Discover Homes{% endblock %}
+{% block content %}
+<div class="pghead"><span class="tag">Recommendation engine</span><h2>Discover Homes</h2><p>Tell us your budget and preferences. Every match comes with an explanation of why it was recommended.</p></div>
+<div class="split" style="padding-bottom:90px">
+  <div class="card" style="position:sticky;top:84px">
+    <label>Budget <output id="o_budget"></output></label><input type="range" id="budget" min="60000" max="600000" step="5000" value="250000">
+    <div class="lbl">Minimum bedrooms</div><div class="seg" id="beds">{% for i in range(1,6) %}<button type="button" data-v="{{ i }}">{{ i }}+</button>{% endfor %}</div>
+    <div class="lbl" style="margin-top:16px">Preferred neighborhoods <small class="mut" id="nbc"></small></div>
+    <div class="chips scroll" id="nbs">{% for n in neighborhoods %}<button type="button" class="chip" data-v="{{ n }}">{{ n }}</button>{% endfor %}</div>
+    <div class="lbl" style="margin-top:16px">Preferences</div>
+    <div class="chips" id="prefs">{% for k,l in [('garage','2+ car garage'),('new_build','Newer build (2000+)'),('high_quality','High quality'),('large_lot','Large lot'),('big_home','Spacious'),('basement','Big basement')] %}<button type="button" class="chip" data-v="{{ k }}">{{ l }}</button>{% endfor %}</div>
+    <button class="btn" id="find" style="width:100%;justify-content:center;margin-top:22px">Find homes</button>
+  </div>
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+      <div class="chips"><button class="chip on" id="tabM">Recommendations</button><button class="chip" id="tabS">♥ Saved <span id="savedN"></span></button></div><span class="mut" id="count" style="font-size:14px"></span></div>
+    <div class="props" id="results"><div class="empty">Searching…</div></div>
+  </div>
+</div>
+<div class="tray" id="tray"><span id="trayT"></span><button class="btn sm" id="cmpGo">Compare</button><button class="btn ghost sm" id="cmpX">Clear</button></div>
+{% endblock %}
+{% block scripts %}<script src="{{ S }}js/discover.js"></script>{% endblock %}

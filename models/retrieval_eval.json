@@ -1,0 +1,84 @@
+{
+ "queries": 15,
+ "top1": 15,
+ "top3": 15,
+ "top1_pct": 100,
+ "top3_pct": 100,
+ "rows": [
+  [
+   "How much down payment does an FHA loan need?",
+   "Property Buying Guide",
+   true
+  ],
+  [
+   "What is PMI and when can it be removed?",
+   "Property Buying Guide",
+   true
+  ],
+  [
+   "How much are closing costs?",
+   "Property Buying Guide",
+   true
+  ],
+  [
+   "What should I check during a home inspection?",
+   "Property Buying Guide",
+   true
+  ],
+  [
+   "What is earnest money?",
+   "Registry & Legal Process",
+   true
+  ],
+  [
+   "What is the transfer tax in Iowa?",
+   "Registry & Legal Process",
+   true
+  ],
+  [
+   "How are property taxes billed in Iowa?",
+   "Registry & Legal Process",
+   true
+  ],
+  [
+   "What is title insurance?",
+   "Registry & Legal Process",
+   true
+  ],
+  [
+   "Difference between a warranty deed and a quit claim deed?",
+   "Registry & Legal Process",
+   true
+  ],
+  [
+   "How is cap rate calculated?",
+   "Investment Tips",
+   true
+  ],
+  [
+   "What is house hacking?",
+   "Investment Tips",
+   true
+  ],
+  [
+   "Why can negative leverage hurt cash flow?",
+   "Investment Tips",
+   true
+  ],
+  [
+   "Which neighborhoods are the most expensive?",
+   "Ames Area Information",
+   true
+  ],
+  [
+   "What is the typical price in NridgHt?",
+   "Ames Area Information",
+   true
+  ],
+  [
+   "Is MeadowV an affordable area?",
+   "Ames Area Information",
+   true
+  ]
+ ]
+}
